@@ -21,6 +21,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="./styles/style.css">
         <title>Dischi</title>
@@ -34,7 +35,33 @@
         </script>
 
         <div id="app">
-            <!-- Vue.js App -->
+
+            <header class="d-flex align-items-center px-5 py-3 m-0">
+                <i class="fa-brands fa-spotify"></i>
+            </header>
+
+            <main class="pt-5">
+                <div class="d-flex container">
+                    <div class="d-flex flex-wrap justify-content-between m-auto my_dischi-container">
+                        <!-- SINGLE CARD -->
+                            <div class="card text-center mb-5" v-for="disco in dischi">
+                                <img :src="disco.poster" class="card-img-top" :alt="disco.title">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        {{ disco.title }}
+                                    </h5>
+                                    <p class="card-text my_author">
+                                        {{ disco.author }}
+                                    </p>
+                                    <p class="card-text my_year">
+                                        {{ disco.year }}
+                                    </p>
+                                </div>
+                            </div>
+                        <!-- /SINGLE CARD -->
+                    </div>
+                </div>
+            </main>
         </div>
 
         <script src="./script/main.js">
