@@ -2,7 +2,7 @@ const {createApp} = Vue;
 createApp ({
     data () {
         return{
-
+            dischi: []
         }
     },
 
@@ -19,7 +19,10 @@ createApp ({
             axios.get(`./server.php`)
             .then((response) => {
                 // handle success
-                console.log(response.data);
+                response.data.forEach((element) => {
+                    this.dischi.push(element);
+                });
+                console.log(this.dischi);
             })
             .catch((error) => {
                 // handle error
